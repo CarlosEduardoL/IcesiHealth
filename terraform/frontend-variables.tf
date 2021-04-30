@@ -82,30 +82,30 @@ variable "front_sg_ingress_app_cird" {
 ## Security group Load Balancer Variables ##
 ############################################
 
-variable "lb_sg_description" {
+variable "frontend_lb_sg_description" {
   type    = string
   default = "load balancer security group"
 }
 
-variable "lb_sg_in_traffic_description" {
+variable "frontend_lb_sg_in_traffic_description" {
   type        = string
   default     = "Allowed traffic from anywhere"
   description = "This is the description for the inbound rule that allowed traffic to the load balancer"
 }
 
-variable "lb_sg_in_traffic_port" {
+variable "frontend_lb_sg_in_traffic_port" {
   type        = number
   default     = 8080
   description = "This is the port for the inbound rule that allowed traffic to the load balancer"
 }
 
-variable "lb_sg_in_traffic_protocol" {
+variable "frontend_lb_sg_in_traffic_protocol" {
   type        = string
   default     = "tcp"
   description = "This is the protocol for the inbound rule that allowed traffic to the load balancer"
 }
 
-variable "lb_sg_in_traffic_cird" {
+variable "frontend_lb_sg_in_traffic_cird" {
   type        = list(string)
   default     = ["0.0.0.0/0"]
   description = "This is the list of CIDR"

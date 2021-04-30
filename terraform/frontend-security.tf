@@ -33,15 +33,15 @@ resource "aws_security_group" "sg-front-instance" {
 }
 
 resource "aws_security_group" "sg-load-balancer-front" {
-  description = var.lb_sg_description
+  description = var.frontend_lb_sg_description
   vpc_id = data.aws_vpc.automation-vpc.id
 
   ingress {
-    description = var.lb_sg_in_traffic_description
-    from_port = var.lb_sg_in_traffic_port
-    to_port = var.lb_sg_in_traffic_port
-    protocol = var.lb_sg_in_traffic_protocol
-    cidr_blocks = var.lb_sg_in_traffic_cird
+    description = var.frontend_lb_sg_in_traffic_description
+    from_port = var.frontend_lb_sg_in_traffic_port
+    to_port = var.frontend_lb_sg_in_traffic_port
+    protocol = var.frontend_lb_sg_in_traffic_protocol
+    cidr_blocks = var.frontend_lb_sg_in_traffic_cird
   }
 
   egress {

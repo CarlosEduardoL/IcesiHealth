@@ -81,8 +81,8 @@ resource "aws_lb_target_group" "front-target-group" {
 ########################################
 ## Resource to create a listener rule ##
 ########################################
-resource "aws_lb_listener" "http" {
-  load_balancer_arn = aws_lb.front-tf-application-loag-balancer.arn
+resource "aws_lb_listener" "http_front" {
+  load_balancer_arn = aws_lb.front-tf-application-load-balancer.arn
   protocol          = var.front_lbl_protocol
   port              = var.front_lbl_port
 
@@ -95,7 +95,7 @@ resource "aws_lb_listener" "http" {
 #####################################################
 ## Resource to create an application load balancer ##
 #####################################################
-resource "aws_lb" "front-tf-application-loag-balancer" {
+resource "aws_lb" "front-tf-application-load-balancer" {
   name               = var.front_lb_name
   load_balancer_type = var.front_lb_type
   subnets            = [

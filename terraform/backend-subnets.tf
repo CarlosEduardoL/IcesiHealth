@@ -17,3 +17,8 @@ resource "aws_subnet" "back_subnet_2" {
     Name        = "back_subnet_2"
   }
 }
+
+//resource "aws_nat_gateway" "back_nat" {
+//  allocation_id = ""
+//  subnet_id     = ""
+//}
