@@ -16,7 +16,7 @@ variable "tag_responsible" {
   description = "Tag of mandatory use by business rules (icesi)"
 }
 
-variable "public_subnet_id_2c" {
+variable "front_subnet_1" {
   type    = string
   default = "subnet-0c4d638d6183bde99"
 }
