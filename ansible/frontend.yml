@@ -1,0 +1,41 @@
+- hosts: tag_Name_tf_instance_front_icesi_health
+  become: yes
+  become_user: root
+  become_method: sudo
+
+  tasks:
+    - name: get info on frontend container
+      docker_container_info:
+        name: appFront
+      register: result
+
+    - name: Does container exists?
+      ansible.builtin.debug:
+        msg: "The container {{ 'exists' if result.exists else 'does not exist' }}"
+
+    - name: Stop container
+      docker_container:
+        name: appFront
+        state: stopped
+      when: result.exists
+
+    - name: remove container
+      docker_container:
+        name: appFront
+        state: absent
+
+    - name: remove image
+      docker_image:
+        state: absent
+        name: appFront
+
+    - name: Execute docker container
+      docker_container:
+        name: appFront
+        image: manuel11coral23/frontend:{{ tag }}
+        state: started
+        pull: true
+        published_ports:
+          - "8080:8080"
+        env: 
+          BACK_HOST: '{{ back_host }}'
