@@ -1,4 +1,4 @@
-- hosts: tag_Name_tf_instance_front_icesi_health
+- hosts: db
   become: yes
   become_user: root
   become_method: sudo
