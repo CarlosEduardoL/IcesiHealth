@@ -1,0 +1,5 @@
+[tag_Name_tf_instance_front_icesi_health]
+ansible_configuration    ansible_connection=local
+
+[db]
+db_configuration    ansible_connection=local

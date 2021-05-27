@@ -1,0 +1,35 @@
+- hosts: all
+  become: yes
+  become_user: root
+  become_method: sudo
+
+  tasks:
+    - name: Install wget
+      apt:
+        name: wget
+        state: present               
+
+    - name: Install JDK
+      apt:
+        name: default-jre
+        update_cache: yes
+        state: present
+        
+    - name: Install required system packages
+      get_url:
+        url: https://pkg.jenkins.io/debian/jenkins.io.key 
+        dest: /
+
+    - name: configuration Jenkins Key
+      ansible.builtin.apt_key:
+        url: https://pkg.jenkins.io/debian/jenkins.io.key
+        state: present
+
+    - name: configurtion Jenkins files
+      command: sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+
+    - name: Install Jenkins
+      apt: 
+        name: jenkins
+        update_cache: yes
+        state: present
