@@ -1,4 +1,4 @@
-- hosts: tag_Name_ansible_configuration_front_icesi_health
+- hosts: tag_Name_ansible_configuration_back_icesi_health
   become: yes
   become_user: root
   become_method: sudo
@@ -32,7 +32,7 @@
     - name: Execute docker container
       docker_container:
         name: appFront
-        image: paovn/frontend-icesi-health:{{ tag }}
+        image: david990612/backend-icesi-health:{{ tag }}
         state: started
         pull: true
         published_ports:
