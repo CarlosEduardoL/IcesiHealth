@@ -4,7 +4,7 @@
 
 ### Ansible ###
 *.retry
-
+.idea
 ### Terraform ###
 # Local .terraform directories
 **/.terraform/*

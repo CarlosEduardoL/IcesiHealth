@@ -6,6 +6,7 @@ resource "aws_launch_template" "launch-template-front" {
   name                   = var.front_launch_template_name
   instance_type          = var.front_launch_template_instance_type
   key_name               = var.key_name
+
   vpc_security_group_ids = [
     aws_security_group.sg-front-instance.id]
 
