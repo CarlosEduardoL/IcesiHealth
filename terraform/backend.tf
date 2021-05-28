@@ -5,6 +5,7 @@ resource "aws_launch_template" "launch-template-back" {
   image_id               = var.ami_id
   name                   = var.backend_launch_template_name
   instance_type          = var.backend_launch_template_instance_type
+  key_name               = var.key_name
   vpc_security_group_ids = [
     aws_security_group.sg-back-instance.id]
 
@@ -25,7 +26,8 @@ resource "aws_launch_template" "launch-template-back" {
 
     tags = {
       "responsible" = var.tag_responsible,
-      "Name"        = var.backend_launch_template_instance_name
+      "Name"        = var.backend_launch_template_instance_name,
+      "Type"        = "Back"
     }
   }
 }
@@ -82,7 +84,7 @@ resource "aws_autoscaling_group" "back-tf-automation-asg" {
 ## Resource to create a listener rule ##
 ########################################
 resource "aws_lb_listener" "http_back" {
-  load_balancer_arn = aws_lb.back-tf-application-loag-balancer.arn
+  load_balancer_arn = aws_lb.back-tf-application-load-balancer.arn
   protocol          = var.backend_lbl_protocol
   port              = var.backend_lbl_port
 
@@ -95,7 +97,7 @@ resource "aws_lb_listener" "http_back" {
 #####################################################
 ## Resource to create an application load balancer ##
 #####################################################
-resource "aws_lb" "back-tf-application-loag-balancer" {
+resource "aws_lb" "back-tf-application-load-balancer" {
   name               = var.backend_lb_name
   load_balancer_type = var.backend_lb_type
   subnets            = [

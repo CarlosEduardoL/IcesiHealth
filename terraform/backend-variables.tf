@@ -154,7 +154,7 @@ variable "backend_tg_port" {
 
 variable "backend_lb_name" {
   type    = string
-  default = "front-tf-ALB-automation"
+  default = "back-tf-ALB-automation"
 }
 
 variable "backend_lb_type" {

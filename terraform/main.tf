@@ -16,5 +16,5 @@ provider "aws" {
 
 ## Use existing VPC
 data "aws_vpc" "automation-vpc" {
-  id = var.icesihealth_2_vpc_id
+  id = var.icesi_health_group_2_vpc_id
 }
