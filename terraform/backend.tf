@@ -6,6 +6,9 @@ resource "aws_launch_template" "launch-template-back" {
   name                   = var.backend_launch_template_name
   instance_type          = var.backend_launch_template_instance_type
   key_name               = var.key_name
+  user_data     = base64encode(templatefile("./back.sh", {
+    db_host = aws_instance.db_instance.private_ip, tag = "latest"
+  }))
   vpc_security_group_ids = [
     aws_security_group.sg-back-instance.id]
 
