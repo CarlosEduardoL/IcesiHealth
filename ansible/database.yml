@@ -7,7 +7,7 @@
     - name: Execute docker container
       docker_container:
         name: appDB
-        image: apache/couthdb
+        image: couthdb
         state: started
         pull: true
         published_ports:
