@@ -38,4 +38,4 @@
         published_ports:
           - "8089:8089"
         env: 
-          DATABASE_URL: 'http://admin:password@{{ db_host }}:5904'
+          DATABASE_URL: 'http://admin:password@{{ db_host }}:5984'
