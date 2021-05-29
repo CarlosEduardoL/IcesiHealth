@@ -13,7 +13,6 @@
         published_ports:
           - "5984:5984"
         env:
-          -name: COUCHDB_USER
-          value: admin
-          -name: COUCHDB_PASSWORD
-          value: password
+          COUCHDB_USER: "admin"          
+          COUCHDB_PASSWORD: "password"
+          
