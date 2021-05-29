@@ -3,16 +3,16 @@
   become_user: root
   become_method: sudo
 
-      - name: Execute docker container
-      docker_container:
-        name: appDB
-        image: apache/couthdb
-        state: started
-        pull: true
-        published_ports:
-          - "5984:5984"
-        env:
-          -name: COUCHDB_USER
-          value: admin
-          -name: COUCHDB_PASSWORD
-          value: password
+    - name: Execute docker container
+    docker_container:
+      name: appDB
+      image: apache/couthdb
+      state: started
+      pull: true
+      published_ports:
+        - "5984:5984"
+      env:
+        -name: COUCHDB_USER
+        value: admin
+        -name: COUCHDB_PASSWORD
+        value: password
