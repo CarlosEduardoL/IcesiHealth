@@ -2,8 +2,8 @@
 db_configuration    ansible_connection=local
 
 [tag_Name_tf_instance_front_icesi_health]
-front_configuration ansible_configuration=local
+front_configuration ansible_connection=local
 
 [tag_Name_tf_instance_back_icesi_health]
-back_configuration   ansible_configuration=local
+back_configuration   ansible_connection=local
 
