@@ -1,4 +1,4 @@
-[db]
+[tag_Name_DB_instance_icesi_health]
 db_configuration    ansible_connection=local
 
 [tag_Name_ansible_configuration_front_icesi_health]

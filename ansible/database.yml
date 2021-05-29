@@ -1,4 +1,4 @@
-- hosts: db
+- hosts: tag_Name_DB_instance_icesi_health
   become: yes
   become_user: root
   become_method: sudo
@@ -11,3 +11,8 @@
         pull: true
         published_ports:
           - "5984:5984"
+        env:
+          -name: COUCHDB_USER
+          value: admin
+          -name: COUCHDB_PASSWORD
+          value: password
