@@ -32,7 +32,7 @@
     - name: Execute docker container
       docker_container:
         name: appFront
-        image: paovn/frontend-icesi-health:{{ tag }}
+        image: david990612/frontend-icesi-health:{{ tag }}
         state: started
         pull: true
         published_ports:
