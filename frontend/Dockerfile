@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Expone el puerto 8089
-EXPOSE 8089
+EXPOSE 8081
 
 # Se ejecuta la app
 CMD [ "node", "app.js" ]
