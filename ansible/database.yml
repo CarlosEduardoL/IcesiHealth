@@ -3,7 +3,8 @@
   become_user: root
   become_method: sudo
 
-      - name: Execute docker container
+  tasks:
+    - name: Execute docker container
       docker_container:
         name: appDB
         image: apache/couthdb
