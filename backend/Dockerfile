@@ -1,4 +1,4 @@
-# Definimos la base que sera node para el frontend
+# Definimos la base que sera node
 FROM node:14
 
 # Se define el directorio donde se colocara todo el codigo dentro del contenedor
@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Expone el puerto 8089
-EXPOSE 8081
+EXPOSE 8089
 
 # Se ejecuta la app
 CMD [ "node", "app.js" ]

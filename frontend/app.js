@@ -14,6 +14,7 @@ logger.debug("launching Example health endpoint");
 /* end of dependency setup */
 
 var port = process.env.PORT || 8080;
+var ip = process.env.BACK_HOST || "127.0.0.1";
 
 var app = express();
 
@@ -26,7 +27,7 @@ var MODE = {
 
 var CURRENTMODE = MODE.BACKEND;
 
-var API_URL = "http://127.0.0.1:8089/"
+var API_URL = "http://"+ip+"/"
 
 app.post('/mode', function(req, res) {
   logger.debug('called the mode endpoint with mode: ' + req.query.mode);
