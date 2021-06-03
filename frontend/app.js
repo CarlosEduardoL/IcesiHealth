@@ -27,7 +27,7 @@ var MODE = {
 
 var CURRENTMODE = MODE.BACKEND;
 
-var API_URL = "http://"+ip+":"+port+"/"
+var API_URL = "http://"+ip+"/"
 
 app.post('/mode', function(req, res) {
   logger.debug('called the mode endpoint with mode: ' + req.query.mode);
