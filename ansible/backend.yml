@@ -1,12 +1,12 @@
-- hosts: tag_Name_tf_instance_front_icesi_health
+- hosts: tag_Name_tf_instance_back_icesi_health
   become: yes
   become_user: root
   become_method: sudo
 
   tasks:
-    - name: get info on frontend container
+    - name: get info on Backend container
       docker_container_info:
-        name: appFront
+        name: appBack
       register: result
 
     - name: Does container exists?
@@ -15,27 +15,27 @@
 
     - name: Stop container
       docker_container:
-        name: appFront
+        name: appBack
         state: stopped
       when: result.exists
 
     - name: remove container
       docker_container:
-        name: appFront
+        name: appBack
         state: absent
 
     - name: remove image
       docker_image:
         state: absent
-        name: appFront
+        name: appBack
 
     - name: Execute docker container
       docker_container:
-        name: appFront
-        image: david990612/frontend-icesi-health:{{ tag }}
+        name: appBack
+        image: david990612/backend-icesi-health:{{ tag }}
         state: started
         pull: true
         published_ports:
-          - "8081:8080"
+          - "8089:8089"
         env: 
-          BACK_HOST: '{{ back_host }}'
+          DATABASE_URL: 'http://admin:password@{{ db_host }}:5984'

@@ -1,13 +1,18 @@
-- hosts: db
+- hosts: tag_Name_DB_instance_icesi_health
   become: yes
   become_user: root
   become_method: sudo
 
-      - name: Execute docker container
+  tasks:
+    - name: Execute docker container
       docker_container:
         name: appDB
-        image: apache/couthdb
+        image: couchdb
         state: started
         pull: true
         published_ports:
           - "5984:5984"
+        env:
+          COUCHDB_USER: "admin"          
+          COUCHDB_PASSWORD: "password"
+          
